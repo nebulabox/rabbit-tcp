@@ -12,7 +12,7 @@ current:
 
 # all: linux-amd64 linux-386 linux-arm64 linux-arm darwin-amd64 darwin-386 windows-amd64 windows-386
 
-all: linux-amd64 darwin-amd64 windows-amd64 linux-mipsle-hardfloat
+all: linux-amd64 darwin-amd64 windows-amd64 linux-mipsle-hardfloat linux-arm64
 
 linux-amd64:
 	GOARCH=amd64 GOOS=linux $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
@@ -20,8 +20,8 @@ linux-amd64:
 # linux-386:
 # 	GOARCH=386 GOOS=linux $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
 
-# linux-arm64:
-# 	GOARCH=arm64 GOOS=linux $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
+linux-arm64:
+	GOARCH=arm64 GOOS=linux $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
 
 # linux-arm:
 # 	GOARCH=arm GOOS=linux $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
