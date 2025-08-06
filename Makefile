@@ -1,6 +1,7 @@
 NAME=rabbit
 BINDIR=bin
 VERSIONPARAM=
+# make releases RABBITVERSION=20250806
 ifdef RABBITVERSION
 	VERSIONPARAM=-X 'main.Version=$(RABBITVERSION)'
 endif
@@ -12,7 +13,7 @@ current:
 
 # all: linux-amd64 linux-386 linux-arm64 linux-arm darwin-amd64 darwin-386 windows-amd64 windows-386
 
-all: linux-amd64 darwin-amd64 windows-amd64 linux-mipsle-hardfloat linux-arm64
+all: linux-amd64 linux-arm64 darwin-arm64 windows-amd64
 
 linux-amd64:
 	GOARCH=amd64 GOOS=linux $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
@@ -26,8 +27,11 @@ linux-arm64:
 # linux-arm:
 # 	GOARCH=arm GOOS=linux $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
 
-darwin-amd64:
-	GOARCH=amd64 GOOS=darwin $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
+# darwin-amd64:
+# 	GOARCH=amd64 GOOS=darwin $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
+
+darwin-arm64:
+	GOARCH=arm64 GOOS=darwin $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
 
 # darwin-386:
 # 	GOARCH=386 GOOS=darwin $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
@@ -41,19 +45,16 @@ windows-amd64:
 # linux-mipsle-softfloat:
 # 	GOARCH=mipsle GOMIPS=softfloat GOOS=linux $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
 
-linux-mipsle-hardfloat:
-	GOARCH=mipsle GOMIPS=hardfloat GOOS=linux $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
+# linux-mipsle-hardfloat:
+# 	GOARCH=mipsle GOMIPS=hardfloat GOOS=linux $(GOBUILD) -o $(BINDIR)/$(NAME)-$@ $(BUILDFILE)
 
-# releases: linux-amd64 linux-386 linux-arm64 linux-arm darwin-amd64 darwin-386 windows-amd64 windows-386
-# 	chmod +x $(BINDIR)/$(NAME)-*
-# 	gzip $(BINDIR)/$(NAME)-linux-amd64
-# 	gzip $(BINDIR)/$(NAME)-linux-386
-# 	gzip $(BINDIR)/$(NAME)-linux-arm64
-# 	gzip $(BINDIR)/$(NAME)-linux-arm
-# 	gzip $(BINDIR)/$(NAME)-darwin-amd64
-# 	gzip $(BINDIR)/$(NAME)-darwin-386
-# 	zip -m -j $(BINDIR)/$(NAME)-windows-amd64.zip $(BINDIR)/$(NAME)-windows-amd64.exe
-# 	zip -m -j $(BINDIR)/$(NAME)-windows-386.zip $(BINDIR)/$(NAME)-windows-386.exe
+# make releases RABBITVERSION=20250806
+releases: clean linux-amd64 linux-arm64 darwin-arm64 windows-amd64
+	chmod +x $(BINDIR)/$(NAME)-*
+	gzip $(BINDIR)/$(NAME)-linux-amd64
+	gzip $(BINDIR)/$(NAME)-linux-arm64
+	gzip $(BINDIR)/$(NAME)-darwin-arm64
+	zip -m -j $(BINDIR)/$(NAME)-windows-amd64.zip $(BINDIR)/$(NAME)-windows-amd64.exe
 
 clean:
 	rm $(BINDIR)/*

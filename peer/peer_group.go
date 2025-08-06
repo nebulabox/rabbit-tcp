@@ -2,9 +2,9 @@ package peer
 
 import (
 	"context"
-	"github.com/ihciah/rabbit-tcp/logger"
-	"github.com/ihciah/rabbit-tcp/tunnel"
-	"github.com/ihciah/rabbit-tcp/tunnel_pool"
+	"github.com/nebulabox/rabbit-tcp/logger"
+	"github.com/nebulabox/rabbit-tcp/tunnel"
+	"github.com/nebulabox/rabbit-tcp/tunnel_pool"
 	"net"
 	"sync"
 )

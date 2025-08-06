@@ -1,4 +1,4 @@
-module github.com/ihciah/rabbit-tcp
+module github.com/nebulabox/rabbit-tcp
 
 go 1.13
 

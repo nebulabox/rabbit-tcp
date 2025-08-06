@@ -1,9 +1,9 @@
 package server
 
 import (
-	"github.com/ihciah/rabbit-tcp/logger"
-	"github.com/ihciah/rabbit-tcp/peer"
-	"github.com/ihciah/rabbit-tcp/tunnel"
+	"github.com/nebulabox/rabbit-tcp/logger"
+	"github.com/nebulabox/rabbit-tcp/peer"
+	"github.com/nebulabox/rabbit-tcp/tunnel"
 	"net"
 )
 

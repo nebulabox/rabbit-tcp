@@ -2,10 +2,10 @@ package connection_pool
 
 import (
 	"context"
-	"github.com/ihciah/rabbit-tcp/block"
-	"github.com/ihciah/rabbit-tcp/connection"
-	"github.com/ihciah/rabbit-tcp/logger"
-	"github.com/ihciah/rabbit-tcp/tunnel_pool"
+	"github.com/nebulabox/rabbit-tcp/block"
+	"github.com/nebulabox/rabbit-tcp/connection"
+	"github.com/nebulabox/rabbit-tcp/logger"
+	"github.com/nebulabox/rabbit-tcp/tunnel_pool"
 	"sync"
 )
 

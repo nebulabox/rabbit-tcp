@@ -2,10 +2,10 @@ package main
 
 import (
 	"flag"
-	"github.com/ihciah/rabbit-tcp/client"
-	"github.com/ihciah/rabbit-tcp/logger"
-	"github.com/ihciah/rabbit-tcp/server"
-	"github.com/ihciah/rabbit-tcp/tunnel"
+	"github.com/nebulabox/rabbit-tcp/client"
+	"github.com/nebulabox/rabbit-tcp/logger"
+	"github.com/nebulabox/rabbit-tcp/server"
+	"github.com/nebulabox/rabbit-tcp/tunnel"
 	"log"
 	"strings"
 )
@@ -35,7 +35,7 @@ func parseFlags() (pass bool, mode int, password string, addr string, listen str
 
 	// version
 	if printVersion {
-		log.Println("Rabbit TCP (https://github.com/ihciah/rabbit-tcp/)")
+		log.Println("Rabbit TCP (https://github.com/nebulabox/rabbit-tcp/)")
 		log.Printf("Version: %s.\n", Version)
 		pass = false
 		return

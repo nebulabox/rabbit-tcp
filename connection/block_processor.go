@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/ihciah/rabbit-tcp/block"
-	"github.com/ihciah/rabbit-tcp/logger"
+	"github.com/nebulabox/rabbit-tcp/block"
+	"github.com/nebulabox/rabbit-tcp/logger"
 	"go.uber.org/atomic"
 )
 
